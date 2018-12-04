@@ -27,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(new UserDetailsService() {
             @Override
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//                在spring2.1中会报 Inferred type 'S' for type parameter 'S' is not within its bound; should extend 'com.manning.readinglist.Reader'错误
                 return readerRepository.findOne(username);
             }
         });
