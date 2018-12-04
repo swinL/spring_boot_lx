@@ -14,8 +14,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private final ReaderRepository readerRepository;
+
     @Autowired
-    private ReaderRepository readerRepository;
+    public SecurityConfig(ReaderRepository readerRepository) {
+        this.readerRepository = readerRepository;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
